@@ -53,4 +53,8 @@ public class FileService {
         Files.write(file.toPath(), userAsString.getBytes(), StandardOpenOption.APPEND); //dodaj na koniec pliku
     }
 
+    public void addTasksToFile(UserModel userModel){
+        File file = new File(ConfigModel.PATH_TO_FILE_TASKS);
+
+    }
 }
