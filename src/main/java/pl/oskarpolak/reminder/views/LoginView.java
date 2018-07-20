@@ -1,6 +1,10 @@
 package pl.oskarpolak.reminder.views;
 
+import pl.oskarpolak.reminder.controllers.AuthController;
+import pl.oskarpolak.reminder.models.UserInstance;
+
 public class LoginView {
+    private UserInstance userLoginInstance;
     public void showWelcomeMessage(){
         System.out.println("Witaj w reminderze!");
     }
@@ -45,4 +49,6 @@ public class LoginView {
     public void showIncorrectLoginData(){
         System.out.println("Nie prawidłowe dane logowania!");
     }
+
+
 }

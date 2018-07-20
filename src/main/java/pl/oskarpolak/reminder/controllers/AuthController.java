@@ -52,7 +52,7 @@ public class AuthController {
         }
     }
 
-    private void getRegisterData() {
+        private void getRegisterData() {
         String username, password, passwordRepeat;
         boolean isRegister = false;
 
@@ -105,7 +105,7 @@ public class AuthController {
             } catch (IOException e) {
                 loginView.showErrorWithFileOnLoginPage();
                 e.printStackTrace();
-                System.exit(-1);
+                System.exit(-1);      //nieoczekiwane zamknięcie
             }
 
             if(!isLogin){
@@ -122,5 +122,9 @@ public class AuthController {
         userLoginInstance.setUsername(username);
 
         new MainController().start();
+
     }
+
+
+
 }

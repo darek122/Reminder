@@ -1,5 +1,6 @@
 package pl.oskarpolak.reminder.models.services;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import pl.oskarpolak.reminder.models.ConfigModel;
 import pl.oskarpolak.reminder.models.TaskModel;
 import pl.oskarpolak.reminder.models.UserModel;
@@ -21,7 +22,7 @@ public class FileService {
         List<String> listOfString = Files.readAllLines(file.toPath());
         List<UserModel> userModels = new ArrayList<>();
         for (String s : listOfString) {
-            String[] simpleData = s.split(":");
+            String[] simpleData = s.split(ConfigModel.IN_FILE_SEPARATOR);
             userModels.add(new UserModel(simpleData[0], simpleData[1]));
         }
 
@@ -49,7 +50,7 @@ public class FileService {
         File file = new File(ConfigModel.PATH_TO_FILE_ACCOUNT);
 
         String userAsString = userModel.getUsername() + ConfigModel.IN_FILE_SEPARATOR + userModel.getPassword() + "\r\n";
-        Files.write(file.toPath(), userAsString.getBytes(), StandardOpenOption.APPEND);
+        Files.write(file.toPath(), userAsString.getBytes(), StandardOpenOption.APPEND); //dodaj na koniec pliku
     }
 
 }
